@@ -1,4 +1,4 @@
-#include "CoverageTestFunctions.h"
+#include <Common/CoverageTestFunctions.h>
 
 namespace DB
 {
