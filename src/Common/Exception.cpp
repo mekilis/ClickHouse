@@ -10,6 +10,7 @@
 #include <Common/ErrorCodes.h>
 #include <Common/Exception.h>
 #include <Common/ErrnoException.h>
+#include <Common/CoverageTestFunctions.h>
 #include <Common/ExceptionExt.h>
 #include <Common/LockMemoryExceptionInThread.h>
 #include <Common/Logger.h>
@@ -303,6 +304,8 @@ void tryLogCurrentException(const char * log_name, const std::string & start_of_
 {
     /// Explicitly block MEMORY_LIMIT_EXCEEDED
     LockMemoryExceptionInThread lock_memory_tracker(VariableContext::Global);
+
+    [[maybe_unused]] auto demo = coveredDemoFunction(0);
 
     /// getLogger can allocate memory too
     auto logger = getLogger(String{log_name});
